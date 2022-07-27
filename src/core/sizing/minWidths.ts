@@ -8,7 +8,7 @@ const mWidths = StyleSheet.create({
   'min-w-screen': { minWidth: 0 },
 });
 const minWidthAttr = {
-  'min-w': (value: number | string): NameStyled => ({
+  minW: (value: number | string): NameStyled => ({
     minWidth: value,
   }),
 };

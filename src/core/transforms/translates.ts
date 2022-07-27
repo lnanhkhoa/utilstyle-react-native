@@ -3,13 +3,9 @@ import type {
   TranslateYTransform,
   ViewStyle,
 } from 'react-native';
-import {
-  mapStringValues,
-  ValueNumberType,
-  ValueType,
-} from '../../configs/types';
+import type { ValueType } from '../../configs/types';
+import { mapStringValues } from '../../configs/types';
 import { remToPx } from '../../configs/text';
-import { isFloat } from '../../configs/utils';
 
 const translateX = (x: number): TranslateXTransform => ({ translateX: x });
 const translateY = (x: number): TranslateYTransform => ({ translateY: x });
@@ -20,8 +16,11 @@ const translateYrem = (x: number): TranslateYTransform => ({
   translateY: remToPx(x),
 });
 
-function makeValues(value: ValueNumberType) {
-  return [translateX(value), translateY(value)];
+function makeValues(value: number | string) {
+  if (typeof value === 'number') {
+    return [translateX(value), translateY(value)];
+  }
+  return [translateX(0), translateY(0)];
 }
 
 function makeKeys(value: ValueType) {
@@ -31,11 +30,9 @@ function makeKeys(value: ValueType) {
 function generateTranslate(value: ValueType) {
   const base = 0.25;
   const afterValue =
-    typeof value === 'number' && isFloat(value)
-      ? remToPx(value * base)
-      : mapStringValues[value];
+    typeof value === 'number' ? remToPx(value * base) : mapStringValues[value];
 
-  const keys = makeKeys(afterValue);
+  const keys = makeKeys(value);
   const values = makeValues(afterValue);
 
   const obj: { [P in typeof keys[number]]?: ViewStyle } = {};

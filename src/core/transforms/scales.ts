@@ -10,7 +10,7 @@ const scaleY = (x: number): ScaleYTransform => ({ scaleY: x });
 
 export const scales = {
   'scale': (value: number) => scale(value / 100),
-  
+
   'scale-0': scale(0),
   'scale-x-0': scaleX(0),
   'scale-y-0': scaleY(0),

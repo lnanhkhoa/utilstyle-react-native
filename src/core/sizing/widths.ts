@@ -1,13 +1,5 @@
-import {
-  ImageStyle,
-  StyleSheet,
-  TextStyle,
-  ViewStyle,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { remToPx } from '../../configs/text';
-
-type NameStyled = ViewStyle | ImageStyle | TextStyle;
 
 const w = StyleSheet.create({
   'w-0': { width: 0 },
@@ -61,7 +53,7 @@ const w = StyleSheet.create({
   'w-screen': { width: Dimensions.get('screen').width },
 });
 const widthAttr = {
-  w: (value: number | string): NameStyled => ({ width: value }),
+  w: (value: number | string | undefined) => ({ width: value }),
 };
 
 export const widths = {

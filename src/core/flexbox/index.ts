@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { basises } from './basis';
+import { basises } from './basises';
 
 const directions = StyleSheet.create({
   'flex-row': {

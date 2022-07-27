@@ -1,13 +1,5 @@
-import {
-  ImageStyle,
-  StyleSheet,
-  TextStyle,
-  ViewStyle,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { remToPx } from '../../configs/text';
-
-type NameStyled = ViewStyle | ImageStyle | TextStyle;
 
 const h = StyleSheet.create({
   'h-0': { height: 0 },
@@ -61,7 +53,7 @@ const h = StyleSheet.create({
   'h-screen': { height: Dimensions.get('screen').height },
 });
 const heightAttr = {
-  h: (value: number | string): NameStyled => ({ height: value }),
+  h: (value: string | number | undefined) => ({ height: value }),
 };
 
 export const heights = {

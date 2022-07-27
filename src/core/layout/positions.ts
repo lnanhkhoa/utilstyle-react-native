@@ -1,6 +1,5 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 import { remToPx } from '../../configs/text';
-import { isFloat } from '../../configs/utils';
 import type { ValueType } from '../../configs/types';
 import { mapStringValues } from '../../configs/types';
 
@@ -51,11 +50,9 @@ function makeInsetKeys(value: ValueType) {
 function generateInsetPositions(value: ValueType) {
   const base = 0.25;
   const afterValue =
-    typeof value === 'number' && isFloat(value)
-      ? remToPx(value * base)
-      : mapStringValues[value];
+    typeof value === 'number' ? remToPx(value * base) : mapStringValues[value];
 
-  const keys = makeInsetKeys(afterValue);
+  const keys = makeInsetKeys(value);
   const values = makeInsetValues(afterValue);
 
   const obj: { [P in typeof keys[number]]?: ViewStyle } = {};
@@ -66,10 +63,10 @@ function generateInsetPositions(value: ValueType) {
 }
 
 export const positions = StyleSheet.create({
-  'relative': {
+  relative: {
     position: 'relative',
   },
-  'absolute': {
+  absolute: {
     position: 'absolute',
   },
   ...generateInsetPositions('px'),

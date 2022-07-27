@@ -1,12 +1,6 @@
 import * as React from 'react';
 
-import {
-  StyleSheet,
-  View,
-  Text,
-  Touchable,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { multiply } from 'utilstyle-react-native';
 
 export default function App() {

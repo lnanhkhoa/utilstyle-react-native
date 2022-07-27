@@ -15,7 +15,7 @@ const mHeight = StyleSheet.create({
   'max-h-screen': { maxHeight: Dimensions.get('screen').height },
 });
 const maxHeightAttr = {
-  'max-h': (value: number | string): NameStyled => ({
+  maxH: (value: number | string): NameStyled => ({
     maxHeight: value,
   }),
 };

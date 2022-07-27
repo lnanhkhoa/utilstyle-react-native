@@ -14,7 +14,7 @@ const mHeights = StyleSheet.create({
   'min-h-screen': { minHeight: Dimensions.get('screen').height },
 });
 const minHeightAttr = {
-  'min-h': (value: number | string): NameStyled => ({
+  minH: (value: number | string): NameStyled => ({
     minHeight: value,
   }),
 };

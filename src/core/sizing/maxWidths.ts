@@ -15,7 +15,7 @@ const mWidths = StyleSheet.create({
   'max-w-screen': { maxWidth: Dimensions.get('screen').width },
 });
 const maxWidthAttr = {
-  'max-w': (value: number | string): NameStyled => ({
+  maxW: (value: number | string): NameStyled => ({
     maxWidth: value,
   }),
 };

@@ -37,7 +37,7 @@ export const basises = StyleSheet.create({
   'basis-2.5': { flexBasis: remToPx(0.625) },
   'basis-3.5': { flexBasis: remToPx(0.875) },
   'basis-px': { flexBasis: 1 },
-  
+
   'basis-auto': { flexBasis: 'auto' },
   'basis-1/2': { flexBasis: '50%' },
   'basis-1/3': { flexBasis: '33.333333%' },

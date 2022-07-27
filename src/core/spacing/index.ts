@@ -1,3 +1,3 @@
-import { padding } from './padding';
-import { margin } from './margin';
+import { padding } from './paddings';
+import { margin } from './margins';
 export const spacing = { ...padding, ...margin };
