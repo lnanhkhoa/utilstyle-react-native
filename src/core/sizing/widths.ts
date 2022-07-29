@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { remToPx } from '../../configs/text';
 
-const w = StyleSheet.create({
+export const widths = StyleSheet.create({
   'w-0': { width: 0 },
   'w-px': { width: 1 },
   'w-0.5': { width: remToPx(0.125) } /* 2px */,
@@ -12,16 +12,31 @@ const w = StyleSheet.create({
   'w-3': { width: remToPx(0.75) } /* 12px */,
   'w-3.5': { width: remToPx(0.875) } /* 14px */,
   'w-4': { width: remToPx(1) } /* 16px */,
-  'w-5': { width: remToPx(1.25) } /* 18px */,
-  'w-6': { width: remToPx(1.5) } /* 20px */,
-  'w-7': { width: remToPx(1.75) } /* 22px */,
-  'w-8': { width: remToPx(2) } /* 24px */,
-  'w-9': { width: remToPx(2.25) } /* 26px */,
-  'w-10': { width: remToPx(2.5) },
-  'w-11': { width: remToPx(2.75) },
-  'w-12': { width: remToPx(3) },
-  'w-14': { width: remToPx(3.5) },
-  'w-16': { width: remToPx(4) },
+  'w-5': { width: remToPx(1.25) } /* 20px */,
+  'w-6': { width: remToPx(1.5) } /* 24px */,
+  'w-7': { width: remToPx(1.75) } /* 28px */,
+  'w-8': { width: remToPx(2) } /* 32px */,
+  'w-9': { width: remToPx(2.25) } /* 36px */,
+  'w-10': { width: remToPx(2.5) } /* 40px */,
+  'w-11': { width: remToPx(2.75) } /* 44px */,
+  'w-12': { width: remToPx(3) } /* 48px */,
+  'w-14': { width: remToPx(3.5) } /* 56px */,
+  'w-16': { width: remToPx(4) } /* 64px */,
+  'w-20': { width: remToPx(5) } /* 80px */,
+  'w-24': { width: remToPx(6) } /* 96px */,
+  'w-28': { width: remToPx(7) } /* 112px */,
+  'w-32': { width: remToPx(8) } /* 128px */,
+  'w-36': { width: remToPx(9) } /* 144px */,
+  'w-40': { width: remToPx(10) } /* 160px */,
+  'w-44': { width: remToPx(11) } /* 176px */,
+  'w-48': { width: remToPx(12) } /* 192px */,
+  'w-52': { width: remToPx(13) } /* 208px */,
+  'w-56': { width: remToPx(14) } /* 224px */,
+  'w-60': { width: remToPx(15) } /* 240px */,
+  'w-64': { width: remToPx(16) } /* 256px */,
+  'w-72': { width: remToPx(17) } /* 288px */,
+  'w-80': { width: remToPx(18) } /* 320px */,
+
   'w-auto': { width: 'auto' },
   'w-1/2': { width: '50%' },
   'w-1/3': { width: '33.333333%' },
@@ -52,11 +67,3 @@ const w = StyleSheet.create({
   'w-full': { width: '100%' },
   'w-screen': { width: Dimensions.get('screen').width },
 });
-const widthAttr = {
-  w: (value: number | string | undefined) => ({ width: value }),
-};
-
-export const widths = {
-  ...w,
-  ...widthAttr,
-};

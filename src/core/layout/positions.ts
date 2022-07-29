@@ -36,21 +36,12 @@ function makeInsetKeys(value: ValueType) {
   const right_key = `right-${value}` as const;
   const left_key = `left-${value}` as const;
   const bottom_key = `bottom-${value}` as const;
-  return [
-    inset_key,
-    inset_x_key,
-    inset_y_key,
-    top_key,
-    right_key,
-    bottom_key,
-    left_key,
-  ];
+  return [inset_key, inset_x_key, inset_y_key, top_key, right_key, bottom_key, left_key];
 }
 
 function generateInsetPositions(value: ValueType) {
   const base = 0.25;
-  const afterValue =
-    typeof value === 'number' ? remToPx(value * base) : mapStringValues[value];
+  const afterValue = typeof value === 'number' ? remToPx(value * base) : mapStringValues[value];
 
   const keys = makeInsetKeys(value);
   const values = makeInsetValues(afterValue);

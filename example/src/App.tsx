@@ -1,49 +1,49 @@
-import * as React from 'react';
+import React from 'react';
 
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { multiply } from 'utilstyle-react-native';
+import { View, Text, Switch } from 'react-native';
+import { classnames, us, useColorScheme, colors } from 'utilstyle-react-native';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-  const [rotate, setRotate] = React.useState('360deg');
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
+  const { colorScheme, setColorScheme } = useColorScheme();
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          if (rotate === '360deg') {
-            setRotate('180deg');
-          } else {
-            setRotate('360deg');
-          }
-        }}
-        style={[styles.absolute, { transform: [{ rotateY: rotate }] }]}
+    <View
+      style={classnames(
+        'flex-1',
+        'items-center',
+        'justify-center',
+        'bg-blue-700',
+        'dark:bg-indigo-900'
+      )}
+    >
+      <Text style={classnames('font-bold', 'text-xl', 'text-gray-100', 'dark:text-red-300')}>
+        Color Scheme: {colorScheme}
+      </Text>
+      <Switch
+        onValueChange={(value) => setColorScheme(value ? 'dark' : 'light')}
+        value={colorScheme === 'dark'}
+        trackColor={{ false: colors['red-300'], true: colors.yellow }}
+        ios_backgroundColor={colors['red-300']}
+        style={classnames('my-3')}
+      />
+      <View
+        style={[
+          us.minH(300),
+          classnames('bg-green-50', 'items-center', 'justify-center', 'm-2', 'p-4'),
+          classnames('border-yellow-500', 'rounded-xl', 'border-4'),
+        ]}
       >
-        <Text>Result: {result}</Text>
-      </TouchableOpacity>
+        <Text
+          style={classnames(
+            'font-black',
+            'text-2xl',
+            'text-gray-600',
+            'dark:text-red-300',
+            'text-center'
+          )}
+        >
+          A utility-first styles for React native
+        </Text>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  absolute: {
-    backfaceVisibility: 'hidden',
-    height: 100,
-    width: 100,
-    backgroundColor: 'red',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});

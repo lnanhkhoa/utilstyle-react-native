@@ -12,10 +12,7 @@ type RadiusType =
   | 'rounded-br'
   | 'rounded-bl';
 
-const generateBorderRadiuses = (
-  prefix: RadiusType,
-  properties = ['borderRadius']
-) => {
+const generateBorderRadiuses = (prefix: RadiusType, properties = ['borderRadius']) => {
   const prefix_none = `${prefix}-none` as const;
   const prefix_sm = `${prefix}-sm` as const;
   const prefix_empty = `${prefix}` as const;
@@ -63,22 +60,10 @@ const generateBorderRadiuses = (
 
 export const borderRadiuses = StyleSheet.create({
   ...generateBorderRadiuses('rounded', ['borderRadius']),
-  ...generateBorderRadiuses('rounded-t', [
-    'borderTopLeftRadius',
-    'borderTopRightRadius',
-  ]),
-  ...generateBorderRadiuses('rounded-r', [
-    'borderTopRightRadius',
-    'borderBottomRightRadius',
-  ]),
-  ...generateBorderRadiuses('rounded-b', [
-    'borderBottomRightRadius',
-    'borderBottomLeftRadius',
-  ]),
-  ...generateBorderRadiuses('rounded-l', [
-    'borderTopLeftRadius',
-    'borderBottomLeftRadius',
-  ]),
+  ...generateBorderRadiuses('rounded-t', ['borderTopLeftRadius', 'borderTopRightRadius']),
+  ...generateBorderRadiuses('rounded-r', ['borderTopRightRadius', 'borderBottomRightRadius']),
+  ...generateBorderRadiuses('rounded-b', ['borderBottomRightRadius', 'borderBottomLeftRadius']),
+  ...generateBorderRadiuses('rounded-l', ['borderTopLeftRadius', 'borderBottomLeftRadius']),
   ...generateBorderRadiuses('rounded-tl', ['borderTopLeftRadius']),
   ...generateBorderRadiuses('rounded-tr', ['borderTopRightRadius']),
   ...generateBorderRadiuses('rounded-br', ['borderBottomRightRadius']),

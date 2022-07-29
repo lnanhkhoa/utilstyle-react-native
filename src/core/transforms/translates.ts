@@ -1,8 +1,4 @@
-import type {
-  TranslateXTransform,
-  TranslateYTransform,
-  ViewStyle,
-} from 'react-native';
+import { StyleSheet, TranslateXTransform, TranslateYTransform, ViewStyle } from 'react-native';
 import type { ValueType } from '../../configs/types';
 import { mapStringValues } from '../../configs/types';
 import { remToPx } from '../../configs/text';
@@ -29,24 +25,19 @@ function makeKeys(value: ValueType) {
 
 function generateTranslate(value: ValueType) {
   const base = 0.25;
-  const afterValue =
-    typeof value === 'number' ? remToPx(value * base) : mapStringValues[value];
+  const afterValue = typeof value === 'number' ? remToPx(value * base) : mapStringValues[value];
 
   const keys = makeKeys(value);
   const values = makeValues(afterValue);
 
-  const obj: { [P in typeof keys[number]]?: ViewStyle } = {};
+  const obj: { [P in typeof keys[number]]?: any } = {};
   keys.forEach((i, index) => {
-    obj[i] = values[index];
+    obj[i] = { transform: [values[index]] } as ViewStyle;
   });
   return obj;
 }
 
-export const translates = {
-  translateX,
-  translateXrem,
-  translateY,
-  translateYrem,
+export const translates = StyleSheet.create({
   ...generateTranslate(0),
   ...generateTranslate('px'),
   ...generateTranslate(0.5),
@@ -57,4 +48,11 @@ export const translates = {
   ...generateTranslate(3),
   ...generateTranslate(3.5),
   ...generateTranslate(4),
+});
+
+export const translateHelpers = {
+  translateX,
+  translateXrem,
+  translateY,
+  translateYrem,
 };

@@ -9,10 +9,7 @@ type RadiusType =
   | 'border-b'
   | 'border-l';
 
-const generateBorderWidth = (
-  prefix: RadiusType,
-  properties = ['borderRadius']
-) => {
+const generateBorderWidth = (prefix: RadiusType, properties = ['borderRadius']) => {
   const prefix_none = `${prefix}-0` as const;
   const prefix_1 = `${prefix}` as const;
   const prefix_2 = `${prefix}-2` as const;

@@ -1,6 +1,6 @@
-import { rotates } from './rotates';
-import { scales } from './scales';
-import { translates } from './translates';
+import { rotates, rotateHelpers } from './rotates';
+import { scales, scaleHelpers } from './scales';
+import { translates, translateHelpers } from './translates';
 import { skews } from './skews';
 
 export const transforms = {
@@ -9,3 +9,11 @@ export const transforms = {
   ...translates,
   ...skews,
 };
+
+export const transformHelpers = {
+  ...rotateHelpers,
+  ...scaleHelpers,
+  ...translateHelpers,
+};
+
+export type TransformKeys = keyof typeof transforms;

@@ -34,5 +34,8 @@ export const fontSizes = StyleSheet.create({
     fontSize: remToPx(2.25) /* 36px */,
     lineHeight: remToPx(2.5) /* 40px */,
   },
-  'text-5x': { fontSize: remToPx(3) /* 48px */, lineHeight: 1 },
+  'text-5xl': {
+    fontSize: remToPx(3) /* 48px */,
+    lineHeight: remToPx(3.25) /* 52px */,
+  },
 });

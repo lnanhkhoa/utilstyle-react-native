@@ -1,3 +1,5 @@
+import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+
 export type ValueStringType =
   | 'auto'
   | 'full'
@@ -74,3 +76,5 @@ export type ResolutionType = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 export type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
+
+export type NameStyled = ViewStyle | ImageStyle | TextStyle;

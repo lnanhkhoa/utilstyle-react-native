@@ -1,6 +1,3 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
 import {
   flexBox,
   layout,
@@ -9,9 +6,16 @@ import {
   backgrounds,
   border,
   sizing,
+  transforms,
+  transformHelpers,
+  sizingHelpers,
 } from './core';
+import type { TransformKeys } from './core';
+import type { NameStyled } from './configs/types';
+import type { TransformsStyle } from 'react-native';
+import { colorSchemeStore } from './useColorScheme';
 
-export const us = {
+export const utilStyles = {
   ...flexBox,
   ...layout,
   ...spacing,
@@ -20,3 +24,28 @@ export const us = {
   ...border,
   ...sizing,
 };
+export const us = { ...utilStyles, ...transformHelpers, ...sizingHelpers };
+
+type UtilStyleKeys = keyof typeof utilStyles;
+export function classnames(...keys: UtilStyleKeys[]) {
+  const { colorScheme } = colorSchemeStore;
+  const filterKeys = colorScheme === 'light' ? keys.filter((i) => !i.startsWith('dark:')) : keys;
+
+  return filterKeys.reduce(
+    (obj, key) => (utilStyles.hasOwnProperty(key) ? Object.assign(obj, utilStyles[key]) : obj),
+    {} as NameStyled
+  );
+}
+
+export function transformsStyles(...keys: TransformKeys[]) {
+  const attrs = keys.reduce(
+    (obj, key) =>
+      transforms.hasOwnProperty(key) ? Object.assign(obj, transforms[key].transform[0]) : obj,
+    {} as any
+  );
+
+  return { transform: Object.keys(attrs).map((key) => ({ [key]: attrs[key] })) } as TransformsStyle;
+}
+
+export { useColorScheme } from './useColorScheme';
+export { colors } from './core/customization/colors';
