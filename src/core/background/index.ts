@@ -1,4 +1,4 @@
-import type { Entries } from '../../configs/types';
+import type { Entries, NameStyled } from '../../configs/types';
 import { colors, ColorKeys } from '../customization';
 
 const bgLightColorKeys = (Object.keys(colors) as ColorKeys[]).map((i) => `bg-${i}` as const);
@@ -15,3 +15,9 @@ export const backgrounds = colorEntries.reduce((all, item) => {
   all[newDarkKey] = { backgroundColor: value };
   return all;
 }, {} as Record<typeof bgColorKeys[0], { backgroundColor: string }>);
+
+export const backgroundHelpers = {
+  bg: (value: string): NameStyled => ({
+    backgroundColor: value,
+  }),
+};

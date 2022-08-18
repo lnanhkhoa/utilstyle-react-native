@@ -10,6 +10,7 @@ import {
   transformHelpers,
   sizingHelpers,
   effects,
+  backgroundHelpers,
 } from './core';
 import type { TransformKeys } from './core';
 import type { NameStyled } from './configs/types';
@@ -29,7 +30,7 @@ export const utilStyles = {
   ...sizing,
   ...effects,
 };
-export const us = { ...utilStyles, ...transformHelpers, ...sizingHelpers };
+export const us = { ...utilStyles, ...transformHelpers, ...sizingHelpers, ...backgroundHelpers };
 
 type UtilStyleKeys = keyof typeof utilStyles;
 export function classnames(...keyNames: UtilStyleKeys[]) {
