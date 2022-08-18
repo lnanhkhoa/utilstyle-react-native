@@ -1,5 +1,6 @@
 import type { Entries, NameStyled } from '../../configs/types';
 import { colors, ColorKeys } from '../customization';
+import type { ColorValue } from 'react-native';
 
 const bgLightColorKeys = (Object.keys(colors) as ColorKeys[]).map((i) => `bg-${i}` as const);
 const bgDarkColorKeys = (Object.keys(colors) as ColorKeys[]).map((i) => `dark:bg-${i}` as const);
@@ -17,7 +18,7 @@ export const backgrounds = colorEntries.reduce((all, item) => {
 }, {} as Record<typeof bgColorKeys[0], { backgroundColor: string }>);
 
 export const backgroundHelpers = {
-  bg: (value: string): NameStyled => ({
+  bg: (value: ColorValue | undefined): NameStyled => ({
     backgroundColor: value,
   }),
 };
