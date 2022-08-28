@@ -121,8 +121,7 @@
           "trailingComma": "es5",
           "useTabs": false
         }
-      ],
-      "@typescript-eslint/no-unused-vars": "off"
+      ]
     }
   },
   "eslintIgnore": [
@@ -151,7 +150,6 @@
     ]
   },
   "dependencies": {
-    "use-sync-external-store": "^1.2.0",
-    "utility-types": "^3.10.0"
+    "use-sync-external-store": "^1.2.0"
   }
 }
