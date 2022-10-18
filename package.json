@@ -1,6 +1,6 @@
 {
   "name": "utilstyle-react-native",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "utility-first styles for react native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -91,11 +91,6 @@
   "release-it": {
     "npm": {
       "publish": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular"
-      }
     }
   },
   "eslintConfig": {
