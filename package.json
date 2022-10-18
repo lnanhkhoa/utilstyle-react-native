@@ -28,7 +28,8 @@
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn"
+    "bootstrap": "yarn example && yarn",
+    "format":"prettier --write \"**/*.{js,ts,tsx}\""
   },
   "keywords": [
     "react-native",
@@ -47,15 +48,15 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
-    "@babel/eslint-parser": "^7.18.9",
-    "@commitlint/config-conventional": "^17.0.2",
-    "@react-native-community/eslint-config": "^3.0.3",
+    "@babel/eslint-parser": "^7.19.1",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@react-native-community/eslint-config": "^3.1.0",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "0.68.0",
     "@types/use-sync-external-store": "^0.0.3",
-    "commitlint": "^17.0.2",
+    "commitlint": "^17.1.2",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -88,15 +89,8 @@
     ]
   },
   "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
     "npm": {
       "publish": true
-    },
-    "github": {
-      "release": true
     },
     "plugins": {
       "@release-it/conventional-changelog": {
@@ -112,6 +106,7 @@
       "prettier"
     ],
     "rules": {
+      "@typescript-eslint/no-unused-vars": "off",
       "prettier/prettier": [
         "error",
         {

@@ -1,7 +1,11 @@
+/**
+ *  https://tailwindcss.com/docs/border-radius
+ */
+
 import { StyleSheet, ViewStyle } from 'react-native';
 import { remToPx } from '../../configs/text';
 
-type RadiusType =
+type BorderRadiusType =
   | 'rounded'
   | 'rounded-t'
   | 'rounded-r'
@@ -12,7 +16,7 @@ type RadiusType =
   | 'rounded-br'
   | 'rounded-bl';
 
-const generateBorderRadiuses = (prefix: RadiusType, properties = ['borderRadius']) => {
+const generateBorderRadiuses = (prefix: BorderRadiusType, properties = ['borderRadius']) => {
   const prefix_none = `${prefix}-none` as const;
   const prefix_sm = `${prefix}-sm` as const;
   const prefix_empty = `${prefix}` as const;

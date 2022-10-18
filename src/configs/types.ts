@@ -1,3 +1,4 @@
+export { View } from 'react-native';
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 export type ValueStringType =
@@ -10,6 +11,7 @@ export type ValueStringType =
   | '1/4'
   | '2/4'
   | '3/4';
+
 export type ValueNumberType =
   | 0
   | 0.5

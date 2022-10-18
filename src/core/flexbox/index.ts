@@ -64,7 +64,7 @@ const aligns = StyleSheet.create({
   'self-baseline': { alignSelf: 'baseline' },
 });
 
-export const flexBox = {
+export const flexBox = StyleSheet.create({
   ...directions,
   ...basises,
   ...wraps,
@@ -73,4 +73,4 @@ export const flexBox = {
   ...shrinks,
   ...justifyContents,
   ...aligns,
-};
+});

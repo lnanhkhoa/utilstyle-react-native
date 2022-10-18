@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 export default function App() {
   const [rotate, setRotate] = React.useState('360deg');
@@ -16,7 +15,9 @@ export default function App() {
           }
         }}
         style={[styles.absolute, { transform: [{ rotateY: rotate }] }]}
-      ></TouchableOpacity>
+      >
+        <Text>123123</Text>
+      </TouchableOpacity>
     </View>
   );
 }

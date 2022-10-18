@@ -1,21 +1,29 @@
 import React from 'react';
 
-import { View, Text, Switch } from 'react-native';
-import { classnames, us, useColorScheme, colors } from 'utilstyle-react-native';
+import { View, Text as Text, Switch } from 'react-native';
+import {
+  classnames,
+  utilHelpers as uh,
+  useColorScheme,
+  colors,
+  colorClassnames,
+} from 'utilstyle-react-native';
 
 export default function App() {
   const { colorScheme, setColorScheme } = useColorScheme();
   return (
     <View
-      style={classnames(
-        'flex-1',
-        'items-center',
-        'justify-center',
-        'bg-blue-700',
-        'dark:bg-indigo-900'
-      )}
+      style={[
+        classnames('flex-1', 'items-center', 'justify-center'),
+        colorClassnames('bg-blue-700', 'dark:bg-indigo-900'),
+      ]}
     >
-      <Text style={classnames('font-bold', 'text-xl', 'text-gray-100', 'dark:text-red-300')}>
+      <Text
+        style={[
+          classnames('font-bold', 'text-xl'),
+          colorClassnames('text-gray-100', 'dark:text-red-300'),
+        ]}
+      >
         Color Scheme: {colorScheme}
       </Text>
       <Switch
@@ -27,19 +35,17 @@ export default function App() {
       />
       <View
         style={[
-          us.minH(300),
-          classnames('bg-green-50', 'items-center', 'justify-center', 'm-2', 'p-4'),
-          classnames('border-yellow-500', 'rounded-xl', 'border-4'),
+          uh.minH(300),
+          classnames('items-center', 'justify-center', 'm-2', 'p-4'),
+          classnames('rounded-xl', 'border-4'),
+          colorClassnames('bg-green-50', 'border-yellow-500'),
         ]}
       >
         <Text
-          style={classnames(
-            'font-black',
-            'text-2xl',
-            'text-gray-600',
-            'dark:text-red-300',
-            'text-center'
-          )}
+          style={[
+            classnames('font-black', 'text-2xl', 'text-center'),
+            colorClassnames('text-gray-600', 'dark:text-red-300'),
+          ]}
         >
           A utility-first styles for React native
         </Text>

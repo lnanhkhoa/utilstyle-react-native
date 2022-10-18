@@ -6,9 +6,8 @@ import { letterSpacings } from './letterSpacings';
 import { lineHeights } from './lineHeights';
 import { textAligns } from './textAligns';
 import { textAlignVerticals } from './textAlignVerticals';
-import { textColors } from './textColors';
-import { textDecorations } from './textDecorations';
 import { textTransfroms } from './textTransfroms';
+import { textDecorations } from './textDecorations';
 
 export const typography = {
   ...fontSizes,
@@ -20,6 +19,5 @@ export const typography = {
   ...lineHeights,
   ...textAligns,
   ...textAlignVerticals,
-  ...textColors,
   ...textTransfroms,
 };
